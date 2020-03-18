@@ -68,22 +68,6 @@ And input new password following the hints. (New password should be at least 8 n
 
 **Note:** You can just change the system login password, but can't change the noVNC login password.
 
-## Deep Learning Environment
-
-```shell
-nvidia-smi
-
-python3
-> import tensorflow as tf
-> tf.__version__
-> import cv2
-> cv2.__version__
-```
-
-
-
-![](pic/5.png)
-
 ## Other options
 
 #### Ngrok
