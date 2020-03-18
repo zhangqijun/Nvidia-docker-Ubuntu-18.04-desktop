@@ -2,7 +2,7 @@
 
 > ### Environment
 >
-> - CUDA 9.0
+> - CUDA 10.2
 > - cudnn 7
 >
 >
@@ -46,20 +46,6 @@ sudo nvidia-docker run -itd -p 16068:6080 -e PASSWORD=ubuntu -e SUDO=yes leeocha
 > (This password is for noVNC login and system login.)
 >
 > "-e SUDO=yes" aims to let you login as a user with root permission. (**Recommended**)
-
-Wait for a few seconds, you can access http://[your ip address]:16068/vnc.html and see this noVNC login screen:
-
-![alt text](./pic/1.png)
-
-Then click the "Connect" button and input you noVNC password "0000", then you get the system login page.  If you want the system with adaptive resolution, select "Remote Resizing" option in the control bar on the left side of your browser.
-
-![](pic/2.png)
-
-
-
-Input your system login password("0000" if you follow this guide). Then you can log into the system.
-
-![](pic/3.png)
 
 > If you don't set "-e PASSWORD=$your_password" option,  the password will create randomly, to find it, please use the following command:
 >
