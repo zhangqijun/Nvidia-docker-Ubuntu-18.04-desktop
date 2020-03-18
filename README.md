@@ -22,13 +22,13 @@ Second, you need to install Nvidia-docker following the instructions on this web
 After installing Nvidia-docker, you can build this **Dockerfile**:
 
 ```
-sudo nvidia-docker build -t leeochang/deep_learning:v0.1 .
+sudo nvidia-docker build -t linhle2708/nvidia-docker-ubuntu18.04-desktop:v0.1 .
 ```
 
 Or, just pull my **image**:
 
 ```
-sudo docker pull leeochang/deep_learning:v0.1
+sudo docker pull linhle2708/nvidia-docker-ubuntu18.04-desktop:v0.1
 ```
 
 ## How to use?
@@ -36,12 +36,12 @@ sudo docker pull leeochang/deep_learning:v0.1
 The default usage of this image is:
 
 ```
-sudo nvidia-docker run -itd -p 16068:6080 -e PASSWORD=0000 -e SUDO=yes leeochang/deep_learning:v0.1
+sudo nvidia-docker run -itd -p 16068:6080 -e PASSWORD=ubuntu -e SUDO=yes leeochang/deep_learning:v0.1
 ```
 
 > **Tips:**
 >
-> "-e PASSWORD =0000"  aims to set a password as "0000" for you.
+> "-e PASSWORD =ubuntu"  aims to set a password as "ubuntu" for you.
 >
 > (This password is for noVNC login and system login.)
 >
