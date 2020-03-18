@@ -6,12 +6,9 @@
 > - cudnn 7
 >
 >
-> - TensorFlow 1.6
-> - OpenCV 3.4
-> - Python 3.5
+> - Python 3.6
 > - Python 2.7
-> - Guake, Tilda, XTerm, UXTerm terminal
-> - Chinese character support
+> - terminator
 > - Firefox browser
 
 
