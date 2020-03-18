@@ -55,13 +55,6 @@ sudo nvidia-docker run -itd -p 16068:6080 -e PASSWORD=ubuntu -e SUDO=yes leeocha
 >
 > And if you don't set "-e SUDO=yes" option, you cannot use "sudo" command in the system.
 
-## Terminals
-
-For gnome terminal doesn't work, we install guake for you. First search guake and click to start it. Then use "F12" to show or hide the terminal.
-
-![](pic/4.png)
-
-
 
 ## Password Changing
 
