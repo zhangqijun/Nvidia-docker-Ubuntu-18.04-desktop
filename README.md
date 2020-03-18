@@ -1,8 +1,4 @@
-# Nvidia-docker-Ubuntu 16.04-Unity-Desktop-TensorFlow with GPU
-
-Dockerfile for Ubuntu with Unity desktop environment for deep learning task using TensorFlow and OpenCV 3. 
-
-This **Dockerfile** aims to create a container for **Deep Learning with Tensorflow** with **Unity Desktop** and using **TightVNCServer**, **noVNC**, **Ngrok(Optional)** which allow user to use browser to log into this container. And the container uses **Ubuntu 16.04**, we configure Tensorflow 1.6 and OpenCV 3.4 for you!
+# Nvidia-docker-Ubuntu 18.04-Mate-Desktop with GPU
 
 > ### Environment
 >
