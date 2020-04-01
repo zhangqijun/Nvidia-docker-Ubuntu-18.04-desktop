@@ -19,6 +19,7 @@ RUN apt-get update \
         curl \
         git \
         pwgen \
+	gedit \
     && apt-get autoclean \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
