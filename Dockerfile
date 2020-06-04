@@ -9,6 +9,12 @@ ENV HOME /home/$USER
 RUN adduser $USER --disabled-password
 
 # Install MATE and dependency component.
+
+RUN apt-get update && \
+    apt-get install -y software-properties-common && \
+    add-apt-repository ppa:jonathonf/mate-1.24 && \ 
+    rm -rf /var/lib/apt/lists/*
+
 RUN apt-get update \
     && apt-get install -y \
         tightvncserver \
@@ -20,6 +26,7 @@ RUN apt-get update \
         git \
         pwgen \
 	gedit \
+	unzip \
     && apt-get autoclean \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
