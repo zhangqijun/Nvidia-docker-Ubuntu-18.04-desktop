@@ -39,7 +39,7 @@ sudo docker pull linhle2708/nvidia-docker-ubuntu18.04-desktop:latest
 The default usage of this image is:
 
 ```
-sudo nvidia-docker run -itd -p 16069:6080 -e PASSWORD=ubuntu -e SUDO=yes --shm-size=8G --privileged linhle2708/nvidia-docker-ubuntu18.04-desktop:latest
+sudo nvidia-docker run -itd -p 16069:6080 -e PASSWORD=ubuntu -e SUDO=yes -v /dev/shm:/dev/shm --shm-size=8G --privileged linhle2708/nvidia-docker-ubuntu18.04-desktop:latest
 ```
 
 > **Tips:**
