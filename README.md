@@ -5,7 +5,7 @@ Reference:
 
 > ### Environment
 >
-> - CUDA 10.2
+> - CUDA 10.1
 > - cudnn 7
 >
 >
@@ -25,13 +25,13 @@ Second, you need to install Nvidia-docker following the instructions on this web
 After installing Nvidia-docker, you can build this **Dockerfile**:
 
 ```
-sudo nvidia-docker build -t linhle2708/nvidia-docker-ubuntu18.04-desktop:v0.1 .
+sudo nvidia-docker build -t linhle2708/nvidia-docker-ubuntu18.04-desktop:latest .
 ```
 
 Or, just pull my **image**:
 
 ```
-sudo docker pull linhle2708/nvidia-docker-ubuntu18.04-desktop:v0.1
+sudo docker pull linhle2708/nvidia-docker-ubuntu18.04-desktop:latest
 ```
 
 ## How to use?
@@ -39,7 +39,7 @@ sudo docker pull linhle2708/nvidia-docker-ubuntu18.04-desktop:v0.1
 The default usage of this image is:
 
 ```
-sudo nvidia-docker run -itd -p 16068:6080 -e PASSWORD=ubuntu -e SUDO=yes leeochang/deep_learning:v0.1
+sudo nvidia-docker run -itd -p 16069:6080 -e PASSWORD=ubuntu -e SUDO=yes --shm-size=8G --privileged linhle2708/nvidia-docker-ubuntu18.04-desktop:latest
 ```
 
 > **Tips:**
