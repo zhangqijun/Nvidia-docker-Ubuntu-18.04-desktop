@@ -5,10 +5,19 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV USER ubuntu
 ENV HOME /home/$USER
 
+RUN apt-get update && \
+      apt-get -y install sudo
+
 # Create new user for vnc login.
 RUN adduser $USER --disabled-password
 
 # Install MATE and dependency component.
+RUN apt-get update && \
+    apt-get install -y software-properties-common && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN add-apt-repository ppa:jonathonf/mate-1.24
+
 
 RUN apt-get update \
     && apt-get install -y \
