@@ -5,14 +5,13 @@ Reference:
 
 > ### Environment
 >
-> - CUDA 10.1
-> - cudnn 7
+> - CUDA 12.4
 >
 >
-> - Python 3.6
+> - Python 3.10
 > - Docker in docker
 > - Terminator
-> - Firefox browser
+> - Chrome browser
 
 
 
@@ -25,21 +24,16 @@ Second, you need to install Nvidia-docker following the instructions on this web
 After installing Nvidia-docker, you can build this **Dockerfile**:
 
 ```
-sudo nvidia-docker build -t linhle2708/nvidia-docker-ubuntu18.04-desktop:latest .
+sudo docker build -t ubuntu22.04-novnc:latest .
 ```
 
-Or, just pull my **image**:
-
-```
-sudo docker pull linhle2708/nvidia-docker-ubuntu18.04-desktop:latest
-```
 
 ## How to use?
 
 The default usage of this image is:
 
 ```
-sudo nvidia-docker run -itd -p 16069:6080 -v /var/run/docker.sock:/var/run/docker.sock -v /dev/shm:/dev/shm -e PASSWORD=ubuntu -e SUDO=yes --shm-size=20G --privileged linhle2708/nvidia-docker-ubuntu18.04-desktop:latest
+docker run --gpus=all -itd -p 16069:6080 -v /var/run/docker.sock:/var/run/docker.sock -v /dev/shm:/dev/shm -e PASSWORD=ubuntu -e SUDO=yes --shm-size=20G --privileged ubuntu22.04-novnc:latest
 ```
 
 > **Tips:**
@@ -72,28 +66,6 @@ And input new password following the hints. (New password should be at least 8 n
 **Note:** You can just change the system login password, but can't change the noVNC login password.
 
 ## Other options
-
-#### Ngrok
-
-[Ngrok](https://ngrok.com/) can be used to deploy local host to the Internet.
-
-If you need to use this image across the Internet, Ngrok is what you need.
-
-To enable Ngrok, use following command:
-
-```
-sudo docker run -itd -p 80:6080 -e NGROK=yes leeochang/deep_learning:v0.1
-```
-
-And find the link address:
-
-```
-sudo docker exec $CONTAINER_ID cat /home/ubuntu/ngrok/Ngrok_URL.txt
-```
-
-**NGROK=YES**, **NGROK=Yes**, **NGROK=Y**, **NGROK=y** are also supported.
-
- **Caution!!** this may also cause security issues, use it carefully.
 
 #### Lock Screen
 

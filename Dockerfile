@@ -1,4 +1,4 @@
-FROM nvidia/cuda:10.1-cudnn7-devel-ubuntu18.04
+FROM nvidia/cuda:12.4.1-devel-ubuntu22.04
 
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -16,7 +16,7 @@ RUN apt-get update && \
     apt-get install -y software-properties-common && \
     rm -rf /var/lib/apt/lists/*
 
-RUN add-apt-repository ppa:jonathonf/mate-1.24
+#RUN add-apt-repository ppa:jonathonf/mate-1.24
 
 RUN apt-get update \
     && apt-get install -y \
@@ -55,9 +55,9 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Copy tigerVNC binaries
-ADD https://dl.bintray.com/tigervnc/stable/tigervnc-1.10.0.x86_64.tar.gz $HOME/tigervnc/tigervnc.tar.gz
+ADD https://github.com/TigerVNC/tigervnc/archive/refs/tags/v1.15.0.tar.gz $HOME/tigervnc/tigervnc.tar.gz
 RUN tar xmzf $HOME/tigervnc/tigervnc.tar.gz -C $HOME/tigervnc/ && rm $HOME/tigervnc/tigervnc.tar.gz
-RUN cp -R $HOME/tigervnc/tigervnc-1.10.0.x86_64/* / && rm -rf $HOME/tigervnc/
+RUN cp -R $HOME/tigervnc/tigervnc-1.15.0/* / && rm -rf $HOME/tigervnc/
 
 # Clone noVNC.
 RUN git clone https://github.com/novnc/noVNC.git $HOME/noVNC
@@ -65,9 +65,12 @@ RUN git clone https://github.com/novnc/noVNC.git $HOME/noVNC
 # Clone websockify for noVNC
 Run git clone https://github.com/kanaka/websockify $HOME/noVNC/utils/websockify
 
-# Download ngrok.
-ADD https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip $HOME/ngrok/ngrok.zip
-RUN unzip -o $HOME/ngrok/ngrok.zip -d $HOME/ngrok && rm $HOME/ngrok/ngrok.zip
+# get chrome-repo in apt
+RUN wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -
+RUN echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list
+
+# install browsers
+RUN apt update && apt install -y google-chrome-stable falkon && apt clean all  && apt -y autoremove
 
 # Copy supervisor config
 COPY supervisor.conf /etc/supervisor/conf.d/
